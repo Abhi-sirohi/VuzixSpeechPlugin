@@ -27,22 +27,18 @@ android {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
     }
-
-
-
 }
 
 task jar(type: Jar) {
-    //from android.sourceSets.main.java
-    from 'build/intermediates/classes/release/'
-    setArchiveFileName('VuzixSpeechPlugin.jar')
+    from 'build/intermediates/javac/release/compileReleaseJavaWithJavac/classes/'
+    include '**/*.class' // Ensure only .class files are included
+    archiveBaseName.set('VuzixSpeechPlugin')
+    destinationDirectory.set(file('libs'))
 }
 
 dependencies {
-
     implementation libs.appcompat
     implementation libs.material
-//    implementation fileTree(dir: 'libs', include: ['*.jar'])
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core

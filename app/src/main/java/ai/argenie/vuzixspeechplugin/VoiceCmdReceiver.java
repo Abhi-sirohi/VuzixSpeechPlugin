@@ -1,5 +1,6 @@
 package ai.argenie.vuzixspeechplugin;
 
+import android.app.VoiceInteractor;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -11,7 +12,7 @@ import java.util.Objects;
 
 public class VoiceCmdReceiver extends BroadcastReceiver {
 
-    private static final String TAG = "VoiceCmdReceiver";
+    private static final String TAG = VoiceInteractor.class.getSimpleName();
 
     @Override
     public void onReceive(Context context, Intent intent) {
